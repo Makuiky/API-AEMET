@@ -1,7 +1,10 @@
 import requests, json
 from dateutil.parser import parse
 from datetime import datetime, timedelta
-from sqlfunc import *
+try:
+    from .sqlfunc import *
+except:
+    from sqlfunc import *
 import time
 
 #Valores climatológicos de todas las estaciones para el rango de fechas seleccionado. Periodicidad: 1 vez al día.
@@ -184,6 +187,3 @@ def estaciones(dropjson=False):
 
     conn.close()
     cursor.close()    
-
-val_clima_diario()
-estaciones()
